@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>清明节 · 北京→秦皇岛 3天2晚自驾游</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a2e;
+    --paper: #f5f0e8;
+    --paper-warm: #ebe4d4;
+    --accent: #2d6a4f;
+    --accent-light: #52b788;
+    --sea: #219ebc;
+    --sea-light: #8ecae6;
+    --sea-dark: #023047;
+    --sand: #e9c46a;
+    --sunset: #e76f51;
+    --mist: rgba(26,26,46,0.06);
+    --shadow: rgba(26,26,46,0.1);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Noto Sans SC', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.8;
+    font-weight: 400;
+    overflow-x: hidden;
+  }
+
+  /* ── Hero ── */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(170deg, var(--sea-dark) 0%, #0a4c6a 40%, var(--sea) 70%, var(--sea-light) 100%);
+    overflow: hidden;
+    padding: 2rem;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 120px;
+    background: var(--paper);
+    clip-path: ellipse(55% 100% at 50% 100%);
+    z-index: 2;
+  }
+
+  .hero-waves {
+    position: absolute;
+    bottom: 80px; left: 0; right: 0;
+    height: 200px;
+    opacity: 0.15;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 8px,
+      rgba(255,255,255,0.3) 8px,
+      rgba(255,255,255,0.3) 10px
+    );
+    animation: waveShift 8s ease-in-out infinite alternate;
+  }
+
+  @keyframes waveShift {
+    0% { transform: translateX(-20px) skewY(-1deg); }
+    100% { transform: translateX(20px) skewY(1deg); }
+  }
+
+  .hero-tag {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.5em;
+    color: var(--sand);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 1s 0.3s forwards;
+  }
+
+  .hero h1 {
+    font-family: 'Noto Serif SC', serif;
+    font-weight: 900;
+    font-size: clamp(2.2rem, 6vw, 4.5rem);
+    color: #fff;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+    opacity: 0;
+    animation: fadeUp 1s 0.5s forwards;
+  }
+
+  .hero h1 span {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--sand), var(--sunset));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-sub {
+    font-size: 1.1rem;
+    color: var(--sea-light);
+    font-weight: 300;
+    margin-top: 0.5rem;
+    opacity: 0;
+    animation: fadeUp 1s 0.7s forwards;
+  }
+
+  .hero-meta {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    opacity: 0;
+    animation: fadeUp 1s 0.9s forwards;
+  }
+
+  .hero-meta-item {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 16px;
+    padding: 1rem 1.5rem;
+    color: #fff;
+    text-align: center;
+    min-width: 130px;
+  }
+
+  .hero-meta-item .label {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    opacity: 0.7;
+    margin-bottom: 0.3rem;
+  }
+
+  .hero-meta-item .value {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── Section common ── */
+  .section {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem;
+  }
+
+  .section-label {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.4em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    line-height: 1.4;
+  }
+
+  /* ── Overview cards ── */
+  .overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.2rem;
+    margin-top: 1.5rem;
+  }
+
+  .overview-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 1.5rem;
+    border: 1px solid var(--mist);
+    box-shadow: 0 2px 20px var(--shadow);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .overview-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(26,26,46,0.12);
+  }
+
+  .overview-card .icon {
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+
+  .overview-card h3 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .overview-card p {
+    font-size: 0.88rem;
+    color: #555;
+    line-height: 1.7;
+  }
+
+  /* ── Day timeline ── */
+  .day-block {
+    position: relative;
+    margin-bottom: 4rem;
+  }
+
+  .day-header {
+    position: relative;
+    background: linear-gradient(135deg, var(--sea-dark), var(--sea));
+    color: #fff;
+    border-radius: 20px;
+    padding: 2rem 2.5rem;
+    margin-bottom: 2rem;
+    overflow: hidden;
+  }
+
+  .day-header::after {
+    content: '';
+    position: absolute;
+    top: -30px; right: -30px;
+    width: 120px; height: 120px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.06);
+  }
+
+  .day-header .day-num {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    opacity: 0.7;
+    margin-bottom: 0.3rem;
+  }
+
+  .day-header h2 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+  }
+
+  .day-header .day-desc {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    font-weight: 300;
+  }
+
+  .day-header.day2 {
+    background: linear-gradient(135deg, #2d6a4f, #52b788);
+  }
+
+  .day-header.day3 {
+    background: linear-gradient(135deg, #7f5539, #ddb892);
+  }
+
+  /* Timeline items */
+  .timeline {
+    position: relative;
+    padding-left: 2.5rem;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 11px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--sea-light), var(--accent-light), var(--sand));
+    border-radius: 2px;
+  }
+
+  .tl-item {
+    position: relative;
+    margin-bottom: 2rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .tl-item::before {
+    content: '';
+    position: absolute;
+    left: -2.5rem;
+    top: 6px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 3px solid var(--sea);
+    background: var(--paper);
+    z-index: 1;
+  }
+
+  .tl-item.highlight::before {
+    background: var(--sea);
+    box-shadow: 0 0 0 4px rgba(33,158,188,0.2);
+  }
+
+  .tl-time {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--sea);
+    margin-bottom: 0.2rem;
+  }
+
+  .tl-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+  }
+
+  .tl-body {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.8;
+  }
+
+  .tl-tag {
+    display: inline-block;
+    font-size: 0.72rem;
+    padding: 0.15rem 0.6rem;
+    border-radius: 20px;
+    margin-top: 0.5rem;
+    font-weight: 500;
+  }
+
+  .tl-tag.free { background: #d8f3dc; color: #1b4332; }
+  .tl-tag.ticket { background: #fde2c8; color: #7f4f24; }
+  .tl-tag.food { background: #ffe5ec; color: #9d0208; }
+  .tl-tag.rest { background: #e2e8f0; color: #475569; }
+
+  /* ── Tips section ── */
+  .tips-section {
+    background: #fff;
+    border-radius: 24px;
+    padding: 2.5rem;
+    margin-top: 2rem;
+    border: 1px solid var(--mist);
+    box-shadow: 0 4px 30px var(--shadow);
+  }
+
+  .tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .tip-item h4 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .tip-item p {
+    font-size: 0.85rem;
+    color: #666;
+    line-height: 1.7;
+  }
+
+  /* ── Aranya callout ── */
+  .callout {
+    background: linear-gradient(135deg, #fef9ef, #fff7e6);
+    border: 1px solid var(--sand);
+    border-radius: 16px;
+    padding: 1.5rem 2rem;
+    margin: 1.5rem 0;
+  }
+
+  .callout-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--sunset);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .callout p {
+    font-size: 0.88rem;
+    color: #7f5539;
+    line-height: 1.8;
+  }
+
+  .callout ol {
+    font-size: 0.88rem;
+    color: #7f5539;
+    line-height: 1.8;
+    padding-left: 1.2rem;
+    margin-top: 0.3rem;
+  }
+
+  /* ── Checklist ── */
+  .checklist {
+    list-style: none;
+    margin-top: 1rem;
+  }
+
+  .checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.7rem;
+    padding: 0.6rem 0;
+    font-size: 0.9rem;
+    border-bottom: 1px dashed rgba(0,0,0,0.06);
+  }
+
+  .checklist li::before {
+    content: '☐';
+    font-size: 1.1rem;
+    color: var(--accent);
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  /* ── Footer ── */
+  .footer {
+    text-align: center;
+    padding: 3rem 1.5rem;
+    font-size: 0.8rem;
+    color: #999;
+  }
+
+  .footer .brand {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 1rem;
+    color: var(--ink);
+    margin-bottom: 0.3rem;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 640px) {
+    .hero-meta { gap: 0.8rem; }
+    .hero-meta-item { min-width: 100px; padding: 0.8rem 1rem; }
+    .day-header { padding: 1.5rem; }
+    .tips-section { padding: 1.5rem; }
+    .timeline { padding-left: 2rem; }
+    .tl-item::before { left: -2rem; }
+    .section { padding: 3rem 1.2rem; }
+  }
+
+  /* ── Print ── */
+  @media print {
+    .hero { min-height: auto; padding: 2rem; break-after: page; }
+    .hero::before, .hero-waves { display: none; }
+    .day-block { break-inside: avoid; }
+    body { font-size: 11pt; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════ HERO ═══════ -->
+<section class="hero">
+  <div class="hero-waves"></div>
+  <p class="hero-tag">2026 · 清明假期</p>
+  <h1>北京 → <span>秦皇岛</span></h1>
+  <p class="hero-sub">3天2晚 · 自驾慢旅行</p>
+  <div class="hero-meta">
+    <div class="hero-meta-item">
+      <div class="label">日 期</div>
+      <div class="value">4.4 — 4.6</div>
+    </div>
+    <div class="hero-meta-item">
+      <div class="label">里 程</div>
+      <div class="value">≈ 290 km</div>
+    </div>
+    <div class="hero-meta-item">
+      <div class="label">车 程</div>
+      <div class="value">2.5 — 3h</div>
+    </div>
+    <div class="hero-meta-item">
+      <div class="label">气 温</div>
+      <div class="value">6 — 19℃</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ OVERVIEW ═══════ -->
+<section class="section">
+  <p class="section-label">行前须知</p>
+  <h2 class="section-title">出发前的准备</h2>
+
+  <div class="overview-grid">
+    <div class="overview-card">
+      <div class="icon" style="background:#e2ecf6;color:var(--sea);">🛣️</div>
+      <h3>自驾路线</h3>
+      <p>北京东四环 → 京哈高速 → 秦皇岛西出口。全程约 290 公里，路况好，六车道无山路。建议清明当天 6:00 前出发避开高峰。</p>
+    </div>
+    <div class="overview-card">
+      <div class="icon" style="background:#fef3e2;color:var(--sunset);">🌤️</div>
+      <h3>天气穿搭</h3>
+      <p>4 月初秦皇岛白天 10-25℃，夜间可能降至 0℃ 以下，昼夜温差极大。建议冲锋衣 + 卫衣，海边风大注意保暖。别忘防晒。</p>
+    </div>
+    <div class="overview-card">
+      <div class="icon" style="background:#d8f3dc;color:var(--accent);">🏨</div>
+      <h3>住宿建议</h3>
+      <p>两晚均住北戴河。清明属平季，酒店约 100-300 元/晚。推荐老虎石或鸽子窝方向的中档酒店，携程/美团提前一周预订。</p>
+    </div>
+    <div class="overview-card">
+      <div class="icon" style="background:#fce4ec;color:#c62828;">👥</div>
+      <h3>人流预判</h3>
+      <p>清明节秦皇岛是热门目的地，但属旅游平季，远不如暑期拥挤。天下第一关人较多（已避开），其他景点人流适中。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ DAY 1 ═══════ -->
+<section class="section">
+  <div class="day-block">
+    <div class="day-header">
+      <p class="day-num">DAY 01</p>
+      <h2>北京 → 山海关 → 北戴河</h2>
+      <p class="day-desc">4月4日 · 周六 · 长城入海处的壮阔</p>
+    </div>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <p class="tl-time">06:00</p>
+        <p class="tl-title">北京出发</p>
+        <p class="tl-body">东四环上京哈高速，一路向东。服务区每 40-50km 一个，可中途休息。争取 9 点前到达山海关。</p>
+      </div>
+
+      <div class="tl-item highlight">
+        <p class="tl-time">10:00 — 12:00</p>
+        <p class="tl-title">🏯 老龙头景区</p>
+        <p class="tl-body">万里长城东端起点，城墙直入渤海，景观壮阔。清明期间人比暑期少很多，上午到更好。海边风大，注意保暖。</p>
+        <span class="tl-tag ticket">门票 ≈ 50元</span>
+      </div>
+
+      <div class="tl-item">
+        <p class="tl-time">12:30</p>
+        <p class="tl-title">午餐</p>
+        <p class="tl-body">山海关古城内找一家当地餐馆，尝尝四条包子等本地小吃。</p>
+        <span class="tl-tag food">觅食</span>
+      </div>
+
+      <div class="tl-item">
+        <p class="tl-time">14:00</p>
+        <p class="tl-title">沿海岸线开往北戴河</p>
+        <p class="tl-body">途经求仙入海处附近，不用专门进景区，周边海岸线走走即可。约 1 小时到北戴河。</p>
+      </div>
+
+      <div class="tl-item">
+        <p class="tl-time">15:30</p>
+        <p class="tl-title">入住酒店 · 休息</p>
+        <p class="tl-body">到达北戴河后先入住酒店，洗漱休整。不急着出门，躺一会儿恢复体力。</p>
+        <span class="tl-tag rest">休息</span>
+      </div>
+
+      <div class="tl-item">
+        <p class="tl-time">17:00</p>
+        <p class="tl-title">🌊 老虎石海滩散步</p>
+        <p class="tl-body">傍晚去老虎石公园附近海滩走走，巨石造型独特。4 月不用买票也能在附近海滩散步，吹吹海风。</p>
+        <span class="tl-tag free">免费</span>
+      </div>
+
+      <div class="tl-item">
+        <p class="tl-time">18:30</p>
+        <p class="tl-title">晚餐 · 海鲜</p>
+        <p class="tl-body">推荐去秦皇岛市区吃海鲜（海天一色、鱼满仓等），4月春季海鲜肥美，市区比北戴河景区实惠很多。</p>
+        <span class="tl-tag food">觅食</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════ DAY 2 ═══════ -->
+  <div class="day-block">
+    <div class="day-header day2">
+      <p class="day-num">DAY 02</p>
+      <h2>北戴河 · 日出 + 湿地 + 阿那亚</h2>
+      <p class="day-desc">4月5日 · 周日 · 海边慢时光与文艺社区</p>
+    </div>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <p class="tl-time">05:30 — 07:00</p>
+        <p class="tl-title">🌅 鸽子窝公园看日出（可选）</p>
+        <p class="tl-body">北戴河最佳日出地，4 月日出约 5:50。正值候鸟迁徙季，能看到大量水鸟。清晨人少，看完回酒店补觉。不想早起就跳过。</p>
+        <span class="tl-tag ticket">门票 ≈ 25元</span>
+      </div>
+
+      <div class="tl-item">
+        <p class="tl-time">10:00 — 11:30</p>
+        <p class="tl-title">🦆 北戴河湿地公园</p>
+        <p class="tl-body">免费景点，人非常少。4 月候鸟过境，悠闲观鸟散步，节奏完全自己掌控，非常适合放松。</p>
+        <span class="tl-tag free">免费</span>
+      </div>
+
+      <div class="tl-item">
+        <p class="tl-time">12:00 — 13:30</p>
+        <p class="tl-title">午餐 + 午休</p>
+        <p class="tl-body">回酒店附近吃饭，然后好好睡个午觉，为下午的阿那亚之行养足精神。</p>
+        <span class="tl-tag rest">休息</span>
+      </div>
+
+      <div class="tl-item highlight">
+        <p class="tl-time">14:00</p>
+        <p class="tl-title">出发前往阿那亚</p>
+        <p class="tl-body">从北戴河沿海岸线向南开约 40 分钟到达阿那亚。车停在访客停车场，步行或坐接驳车入园。</p>
+      </div>
+
+      <div class="tl-item highlight">
+        <p class="tl-time">14:45 — 18:00</p>
+        <p class="tl-title">📚 阿那亚半日游</p>
+        <p class="tl-body">
+          推荐路线：孤独图书馆（面朝大海安静看书）→ 沿海滩漫步至阿那亚礼堂（纯白极简建筑，傍晚拍照最美）→ 沙丘美术馆/艺术中心 → 小镇街区随便逛逛。
+        </p>
+        <span class="tl-tag ticket">联票 ≈ 130-200元/人</span>
+      </div>
+
+      <div class="callout">
+        <p class="callout-title">⚠️ 阿那亚入园提醒</p>
+        <p>阿那亚是封闭式社区，非住客需通过以下方式入园：</p>
+        <ol>
+          <li><strong>预约孤独图书馆</strong>（免费，名额少，提前一周在 APP 抢）</li>
+          <li><strong>购买艺术场馆联票</strong>（约 130-200 元/人，最稳妥）</li>
+          <li><strong>购买园区内演出票</strong>（如有活动）</li>
+        </ol>
+        <p style="margin-top:0.5rem;">⏩ 请提前下载「阿那亚」APP 完成实名认证。入园为单次出入，出园不可返回。假期可能限流，越早买票越好。</p>
+      </div>
+
+      <div class="tl-item">
+        <p class="tl-time">18:00 — 19:00</p>
+        <p class="tl-title">在阿那亚吃晚饭</p>
+        <p class="tl-body">园区内有近百家餐厅。推荐第一食堂（实惠家常，人均 60）或海边 y 餐厅（西餐，人均 200+，环境绝佳）。可在 APP「美食」板块提前查看。</p>
+        <span class="tl-tag food">觅食</span>
+      </div>
+
+      <div class="tl-item">
+        <p class="tl-time">19:30</p>
+        <p class="tl-title">返回北戴河</p>
+        <p class="tl-body">约 40 分钟车程回到酒店，结束充实的一天。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════ DAY 3 ═══════ -->
+  <div class="day-block">
+    <div class="day-header day3">
+      <p class="day-num">DAY 03</p>
+      <h2>板厂峪长城 → 返京</h2>
+      <p class="day-desc">4月6日 · 周一 · 小众长城告别游</p>
+    </div>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <p class="tl-time">08:00</p>
+        <p class="tl-title">退房 · 出发</p>
+        <p class="tl-body">睡到自然醒，吃过早餐后退房出发。从北戴河开车约 40 分钟到板厂峪。</p>
+      </div>
+
+      <div class="tl-item highlight">
+        <p class="tl-time">09:00 — 11:30</p>
+        <p class="tl-title">🏔️ 板厂峪长城</p>
+        <p class="tl-body">非常小众的明长城遗址，几乎没有游客。春天漫山杏花与古长城相映成趣，是秦皇岛的隐藏宝藏。体力要求不高，悠闲走走即可。</p>
+        <span class="tl-tag free">人少景美</span>
+      </div>
+
+      <div class="tl-item">
+        <p class="tl-time">12:00</p>
+        <p class="tl-title">农家午餐</p>
+        <p class="tl-body">在板厂峪附近农家院吃顿地道农家饭，柴锅炖鱼、野菜、烙饼，为旅程画上完美句号。</p>
+        <span class="tl-tag food">觅食</span>
+      </div>
+
+      <div class="tl-item">
+        <p class="tl-time">13:30</p>
+        <p class="tl-title">返回北京</p>
+        <p class="tl-body">上京哈高速返京，正常约 3 小时。假期最后一天建议不要太晚出发，避开返京高峰。堵车可能需要 4-5 小时。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ TIPS ═══════ -->
+<section class="section" style="padding-top:0;">
+  <div class="tips-section">
+    <p class="section-label">贴心提示</p>
+    <h2 class="section-title">实用备忘</h2>
+    <div class="tips-grid">
+      <div class="tip-item">
+        <h4>🧥 穿衣指南</h4>
+        <p>冲锋衣或厚外套必带，里面穿卫衣。海边风大体感比实际温度低 5-8 度。带一条围巾防风。</p>
+      </div>
+      <div class="tip-item">
+        <h4>🦀 吃海鲜</h4>
+        <p>4 月是吃海鲜的好时节。秦皇岛市区（河东市场附近）比北戴河景区便宜很多。自己买海鲜找店加工也不错。</p>
+      </div>
+      <div class="tip-item">
+        <h4>📱 提前准备</h4>
+        <p>下载「阿那亚」APP 实名认证 → 预约图书馆或买联票。携程/美团预订北戴河酒店。导航备好离线地图。</p>
+      </div>
+      <div class="tip-item">
+        <h4>⛽ 加油补给</h4>
+        <p>京哈高速服务区每 40-50km 一个，加油方便。秦皇岛市区加油站也很多，不用担心。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="tips-section" style="margin-top:1.5rem;">
+    <p class="section-label">出发前清单</p>
+    <h2 class="section-title">别忘了这些</h2>
+    <ul class="checklist">
+      <li>下载「阿那亚」APP，完成实名认证</li>
+      <li>预约孤独图书馆 / 购买艺术场馆联票</li>
+      <li>在携程或美团预订北戴河酒店（2晚）</li>
+      <li>冲锋衣、厚外套、围巾、防晒霜</li>
+      <li>舒适的步行鞋（板厂峪要走山路）</li>
+      <li>充电宝、车载充电器</li>
+      <li>现金少量（部分农家院可能不支持手机支付）</li>
+      <li>导航提前下载离线地图（山区可能信号差）</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer class="footer">
+  <p class="brand">清明 · 秦皇岛之旅</p>
+  <p>2026年4月4日 — 4月6日 · 3天2晚自驾</p>
+  <p style="margin-top:0.5rem;">祝旅途愉快 🌊</p>
+</footer>
+
+</body>
+</html>

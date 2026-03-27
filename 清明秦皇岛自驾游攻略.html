@@ -471,6 +471,81 @@
     .section { padding: 3rem 1.2rem; }
   }
 
+  /* ── Timetable ── */
+  .timetable {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+    margin-top: 1.5rem;
+  }
+
+  .tt-col {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 20px var(--shadow);
+    border: 1px solid var(--mist);
+  }
+
+  .tt-header {
+    color: #fff;
+    padding: 1.2rem 1.2rem 1rem;
+  }
+
+  .tt-day {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    opacity: 0.8;
+    margin-bottom: 0.2rem;
+  }
+
+  .tt-date {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+  }
+
+  .tt-route {
+    font-size: 0.78rem;
+    opacity: 0.85;
+    font-weight: 300;
+  }
+
+  .tt-body {
+    background: #fff;
+    padding: 0.6rem 0;
+  }
+
+  .tt-row {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    padding: 0.5rem 1rem;
+    border-bottom: 1px dashed rgba(0,0,0,0.06);
+    font-size: 0.85rem;
+  }
+
+  .tt-row:last-child { border-bottom: none; }
+
+  .tt-time {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--sea);
+    flex-shrink: 0;
+    width: 2.8rem;
+  }
+
+  .tt-act {
+    color: var(--ink);
+    line-height: 1.5;
+  }
+
+  @media (max-width: 640px) {
+    .timetable { grid-template-columns: 1fr; }
+  }
+
   /* ── Print ── */
   @media print {
     .hero { min-height: auto; padding: 2rem; break-after: page; }
@@ -533,6 +608,62 @@
       <div class="icon" style="background:#fce4ec;color:#c62828;">👥</div>
       <h3>人流预判</h3>
       <p>清明节秦皇岛是热门目的地，但属旅游平季，远不如暑期拥挤。天下第一关人较多（已避开），其他景点人流适中。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ TIMETABLE ═══════ -->
+<section class="section" style="padding-top:0;">
+  <p class="section-label">行程总览</p>
+  <h2 class="section-title">三天时间表</h2>
+  <div class="timetable">
+    <!-- Day 1 -->
+    <div class="tt-col">
+      <div class="tt-header" style="background:linear-gradient(135deg,var(--sea-dark),var(--sea));">
+        <div class="tt-day">DAY 01</div>
+        <div class="tt-date">4月4日 · 周六</div>
+        <div class="tt-route">北京 → 山海关 → 北戴河</div>
+      </div>
+      <div class="tt-body">
+        <div class="tt-row"><span class="tt-time">06:00</span><span class="tt-act">🚗 北京出发</span></div>
+        <div class="tt-row"><span class="tt-time">10:00</span><span class="tt-act">🏯 老龙头景区</span></div>
+        <div class="tt-row"><span class="tt-time">12:30</span><span class="tt-act">🍜 山海关午餐</span></div>
+        <div class="tt-row"><span class="tt-time">14:00</span><span class="tt-act">🚗 驱车北戴河</span></div>
+        <div class="tt-row"><span class="tt-time">15:30</span><span class="tt-act">🏨 入住休息</span></div>
+        <div class="tt-row"><span class="tt-time">17:00</span><span class="tt-act">🌊 老虎石海滩</span></div>
+        <div class="tt-row"><span class="tt-time">18:30</span><span class="tt-act">🦀 海鲜晚餐</span></div>
+      </div>
+    </div>
+    <!-- Day 2 -->
+    <div class="tt-col">
+      <div class="tt-header" style="background:linear-gradient(135deg,#2d6a4f,#52b788);">
+        <div class="tt-day">DAY 02</div>
+        <div class="tt-date">4月5日 · 周日</div>
+        <div class="tt-route">北戴河 · 全天</div>
+      </div>
+      <div class="tt-body">
+        <div class="tt-row"><span class="tt-time">05:30</span><span class="tt-act">🌅 鸽子窝日出（选）</span></div>
+        <div class="tt-row"><span class="tt-time">10:00</span><span class="tt-act">🦆 北戴河湿地公园</span></div>
+        <div class="tt-row"><span class="tt-time">12:00</span><span class="tt-act">🍱 午餐 + 午休</span></div>
+        <div class="tt-row"><span class="tt-time">14:00</span><span class="tt-act">🚗 出发阿那亚</span></div>
+        <div class="tt-row"><span class="tt-time">14:45</span><span class="tt-act">📚 阿那亚半日游</span></div>
+        <div class="tt-row"><span class="tt-time">18:00</span><span class="tt-act">🍽️ 阿那亚晚餐</span></div>
+        <div class="tt-row"><span class="tt-time">19:30</span><span class="tt-act">🚗 返回北戴河</span></div>
+      </div>
+    </div>
+    <!-- Day 3 -->
+    <div class="tt-col">
+      <div class="tt-header" style="background:linear-gradient(135deg,#7f5539,#ddb892);">
+        <div class="tt-day">DAY 03</div>
+        <div class="tt-date">4月6日 · 周一</div>
+        <div class="tt-route">板厂峪 → 返京</div>
+      </div>
+      <div class="tt-body">
+        <div class="tt-row"><span class="tt-time">08:00</span><span class="tt-act">🏨 退房出发</span></div>
+        <div class="tt-row"><span class="tt-time">09:00</span><span class="tt-act">🏔️ 板厂峪长城</span></div>
+        <div class="tt-row"><span class="tt-time">12:00</span><span class="tt-act">🥘 农家午餐</span></div>
+        <div class="tt-row"><span class="tt-time">13:30</span><span class="tt-act">🚗 返回北京</span></div>
+      </div>
     </div>
   </div>
 </section>

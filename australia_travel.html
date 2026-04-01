@@ -1,0 +1,1596 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>澳大利亚 · 悉尼 + 墨尔本 8天自由行</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a2e;
+    --paper: #f5f2ec;
+    --paper-warm: #ede8de;
+    --ocean: #0077b6;
+    --ocean-light: #90e0ef;
+    --ocean-dark: #023e8a;
+    --coral: #f4845f;
+    --coral-light: #fbc4ab;
+    --sand: #f2cc8f;
+    --eucalyptus: #386641;
+    --eucalyptus-light: #6a994e;
+    --mist: rgba(26,26,46,0.06);
+    --shadow: rgba(26,26,46,0.1);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Noto Sans SC', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.8;
+    font-weight: 400;
+    overflow-x: hidden;
+  }
+
+  /* ── Hero ── */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(160deg, var(--ocean-dark) 0%, #0055a5 35%, var(--ocean) 65%, #48cae4 100%);
+    overflow: hidden;
+    padding: 2rem;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 120px;
+    background: var(--paper);
+    clip-path: ellipse(55% 100% at 50% 100%);
+    z-index: 2;
+  }
+
+  .hero-deco {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background:
+      radial-gradient(ellipse 60% 30% at 80% 20%, rgba(244,132,95,0.15) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 50% at 10% 80%, rgba(144,224,239,0.12) 0%, transparent 60%);
+  }
+
+  .hero-waves {
+    position: absolute;
+    bottom: 80px; left: 0; right: 0;
+    height: 200px;
+    opacity: 0.12;
+    background: repeating-linear-gradient(
+      0deg, transparent, transparent 8px,
+      rgba(255,255,255,0.4) 8px, rgba(255,255,255,0.4) 10px
+    );
+    animation: waveShift 8s ease-in-out infinite alternate;
+  }
+
+  @keyframes waveShift {
+    0% { transform: translateX(-20px) skewY(-1deg); }
+    100% { transform: translateX(20px) skewY(1deg); }
+  }
+
+  .hero-tag {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.5em;
+    color: var(--sand);
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 1s 0.3s forwards;
+    position: relative; z-index: 3;
+  }
+
+  .hero h1 {
+    font-family: 'Noto Serif SC', serif;
+    font-weight: 900;
+    font-size: clamp(2.2rem, 6vw, 4.5rem);
+    color: #fff;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+    opacity: 0;
+    animation: fadeUp 1s 0.5s forwards;
+    position: relative; z-index: 3;
+  }
+
+  .hero h1 span {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--sand), var(--coral));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-sub {
+    font-size: 1.1rem;
+    color: var(--ocean-light);
+    font-weight: 300;
+    margin-top: 0.5rem;
+    opacity: 0;
+    animation: fadeUp 1s 0.7s forwards;
+    position: relative; z-index: 3;
+  }
+
+  .hero-meta {
+    display: flex;
+    gap: 1.2rem;
+    margin-top: 2.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    opacity: 0;
+    animation: fadeUp 1s 0.9s forwards;
+    position: relative; z-index: 3;
+  }
+
+  .hero-meta-item {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 16px;
+    padding: 1rem 1.5rem;
+    color: #fff;
+    text-align: center;
+    min-width: 120px;
+  }
+
+  .hero-meta-item .label {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    opacity: 0.7;
+    margin-bottom: 0.3rem;
+  }
+
+  .hero-meta-item .value {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── Journey bar ── */
+  .journey-bar {
+    background: var(--ocean-dark);
+    padding: 1.2rem 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.85);
+  }
+
+  .journey-bar .city {
+    font-family: 'Noto Serif SC', serif;
+    font-weight: 700;
+    color: var(--sand);
+    font-size: 1rem;
+  }
+
+  .journey-bar .arrow {
+    color: var(--coral);
+    font-size: 1.1rem;
+  }
+
+  /* ── Section common ── */
+  .section {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem;
+  }
+
+  .section-label {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.4em;
+    color: var(--ocean);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    line-height: 1.4;
+  }
+
+  /* ── Overview cards ── */
+  .overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.2rem;
+    margin-top: 1.5rem;
+  }
+
+  .overview-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 1.5rem;
+    border: 1px solid var(--mist);
+    box-shadow: 0 2px 20px var(--shadow);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .overview-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(26,26,46,0.12);
+  }
+
+  .overview-card .icon {
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+
+  .overview-card h3 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .overview-card p {
+    font-size: 0.88rem;
+    color: #555;
+    line-height: 1.7;
+  }
+
+  /* ── Day timeline ── */
+  .day-block { margin-bottom: 4rem; }
+
+  .day-header {
+    position: relative;
+    color: #fff;
+    border-radius: 20px;
+    padding: 2rem 2.5rem;
+    margin-bottom: 2rem;
+    overflow: hidden;
+  }
+
+  .day-header::after {
+    content: '';
+    position: absolute;
+    top: -30px; right: -30px;
+    width: 140px; height: 140px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.06);
+  }
+
+  .day-header.transit  { background: linear-gradient(135deg, #1a1a2e, #364f6b); }
+  .day-header.sydney   { background: linear-gradient(135deg, var(--ocean-dark), var(--ocean)); }
+  .day-header.transfer { background: linear-gradient(135deg, #6d6875, #b5838d); }
+  .day-header.gor      { background: linear-gradient(135deg, var(--eucalyptus), var(--eucalyptus-light)); }
+  .day-header.melb     { background: linear-gradient(135deg, #7f5539, #ddb892); }
+  .day-header.return   { background: linear-gradient(135deg, #1a1a2e, #364f6b); }
+
+  .day-header .day-num {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    opacity: 0.7;
+    margin-bottom: 0.3rem;
+  }
+
+  .day-header h2 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+  }
+
+  .day-header .day-desc {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    font-weight: 300;
+  }
+
+  /* Timeline */
+  .timeline {
+    position: relative;
+    padding-left: 2.5rem;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 11px; top: 0; bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--ocean-light), var(--eucalyptus-light), var(--sand));
+    border-radius: 2px;
+  }
+
+  .tl-item {
+    position: relative;
+    margin-bottom: 2rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .tl-item::before {
+    content: '';
+    position: absolute;
+    left: -2.5rem;
+    top: 6px;
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    border: 3px solid var(--ocean);
+    background: var(--paper);
+    z-index: 1;
+  }
+
+  .tl-item.highlight::before {
+    background: var(--ocean);
+    box-shadow: 0 0 0 4px rgba(0,119,182,0.2);
+  }
+
+  .tl-item.gor-item::before { border-color: var(--eucalyptus); }
+  .tl-item.gor-item.highlight::before {
+    background: var(--eucalyptus);
+    box-shadow: 0 0 0 4px rgba(56,102,65,0.2);
+  }
+
+  .tl-time {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--ocean);
+    margin-bottom: 0.2rem;
+  }
+
+  .tl-time.gor { color: var(--eucalyptus); }
+  .tl-time.coral { color: var(--coral); }
+
+  .tl-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+  }
+
+  .tl-body {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.8;
+  }
+
+  .tl-tag {
+    display: inline-block;
+    font-size: 0.72rem;
+    padding: 0.15rem 0.6rem;
+    border-radius: 20px;
+    margin-top: 0.5rem;
+    margin-right: 0.4rem;
+    font-weight: 500;
+  }
+
+  .tag-flight  { background: #e8f4f8; color: #0077b6; }
+  .tag-food    { background: #fff3e0; color: #e65100; }
+  .tag-sight   { background: #e8f5e9; color: #2e7d32; }
+  .tag-hotel   { background: #f3e5f5; color: #6a1b9a; }
+  .tag-tour    { background: #e0f2f1; color: #00695c; }
+  .tag-tip     { background: #fff8e1; color: #f57f17; }
+
+  /* ── Placeholder slot ── */
+  .slot {
+    position: relative;
+    margin-bottom: 2rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .slot::before {
+    content: '';
+    position: absolute;
+    left: -2.5rem;
+    top: 6px;
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    border: 3px dashed #aaa;
+    background: var(--paper);
+    z-index: 1;
+  }
+
+  .slot-inner {
+    border: 2px dashed #c8d8e4;
+    border-radius: 12px;
+    padding: 1.2rem 1.5rem;
+    background: rgba(144,224,239,0.06);
+    color: #888;
+  }
+
+  .slot-inner .slot-label {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    color: #aaa;
+    margin-bottom: 0.3rem;
+  }
+
+  .slot-inner .slot-hint {
+    font-size: 0.88rem;
+    color: #aaa;
+    font-style: italic;
+  }
+
+  /* ── Callout ── */
+  .callout {
+    background: #fff;
+    border-left: 4px solid var(--ocean);
+    border-radius: 0 12px 12px 0;
+    padding: 1.2rem 1.5rem;
+    margin: 1.5rem 0;
+    box-shadow: 0 2px 12px var(--shadow);
+    font-size: 0.9rem;
+    line-height: 1.8;
+  }
+
+  .callout.green { border-left-color: var(--eucalyptus); }
+  .callout.coral { border-left-color: var(--coral); }
+  .callout.sand  { border-left-color: #c8a84b; }
+
+  .callout strong { color: var(--ink); }
+
+  /* ── Divider ── */
+  .divider {
+    border: none;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--mist), transparent);
+    margin: 1rem 0 2rem;
+  }
+
+  /* ── Attraction cards ── */
+  .attraction-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.4rem;
+    margin-top: 1.5rem;
+  }
+
+  .attraction-card {
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 20px var(--shadow);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid var(--mist);
+  }
+
+  .attraction-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(26,26,46,0.12);
+  }
+
+  .attr-header {
+    padding: 1.4rem 1.4rem 1rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .attr-code {
+    flex-shrink: 0;
+    width: 36px; height: 36px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--ocean), #48cae4);
+    color: #fff;
+    font-family: 'Noto Serif SC', serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .attr-code.melb {
+    background: linear-gradient(135deg, var(--eucalyptus), var(--eucalyptus-light));
+  }
+
+  .attr-name {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+
+  .attr-en {
+    font-size: 0.78rem;
+    color: #888;
+    margin-top: 0.15rem;
+  }
+
+  .attr-body {
+    padding: 0 1.4rem 1.4rem;
+    font-size: 0.88rem;
+    color: #555;
+    line-height: 1.8;
+  }
+
+  .attr-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.8rem;
+  }
+
+  .attr-badge {
+    font-size: 0.72rem;
+    padding: 0.2rem 0.7rem;
+    border-radius: 20px;
+    background: #f0f4f8;
+    color: #555;
+  }
+
+  .attr-badge.time  { background: #e8f4f8; color: #0077b6; }
+  .attr-badge.cost  { background: #fff3e0; color: #e65100; }
+  .attr-badge.tip   { background: #e8f5e9; color: #2e7d32; }
+
+  /* ── Tour section ── */
+  .tour-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 24px var(--shadow);
+    border: 1px solid var(--mist);
+  }
+
+  .tour-card h3 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .tour-card .tour-meta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+  }
+
+  .tour-meta-item {
+    font-size: 0.82rem;
+    color: #666;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+
+  .tour-meta-item strong { color: var(--ink); }
+
+  .tour-card p, .tour-card li {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.8;
+  }
+
+  .tour-card ul { margin: 0.5rem 0 0 1.2rem; }
+
+  .tour-route {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin: 0.8rem 0;
+    font-size: 0.85rem;
+  }
+
+  .tour-route .stop {
+    background: #e8f5e9;
+    color: var(--eucalyptus);
+    padding: 0.25rem 0.7rem;
+    border-radius: 20px;
+    font-weight: 500;
+  }
+
+  .tour-route .arrow { color: #bbb; font-size: 0.9rem; }
+
+  /* ── Hotel section ── */
+  .hotel-section {
+    background: #f9f6f0;
+    border-radius: 20px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .hotel-section h3 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+    color: var(--ink);
+  }
+
+  .hotel-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+  }
+
+  .hotel-card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 1.3rem;
+    border: 1px solid var(--mist);
+    box-shadow: 0 2px 12px var(--shadow);
+  }
+
+  .hotel-card .hotel-name {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 0.98rem;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+  }
+
+  .hotel-card .hotel-stars {
+    color: #f2cc8f;
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .hotel-card .hotel-desc {
+    font-size: 0.83rem;
+    color: #666;
+    line-height: 1.7;
+  }
+
+  .hotel-card .hotel-price {
+    margin-top: 0.7rem;
+    font-size: 0.82rem;
+    color: var(--coral);
+    font-weight: 600;
+  }
+
+  /* ── Tips / checklist ── */
+  .tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .tip-card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 1.3rem;
+    border: 1px solid var(--mist);
+    box-shadow: 0 2px 12px var(--shadow);
+  }
+
+  .tip-card h4 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .tip-card ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .tip-card ul li {
+    font-size: 0.85rem;
+    color: #555;
+    padding: 0.25rem 0;
+    border-bottom: 1px solid #f0f0f0;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.4rem;
+  }
+
+  .tip-card ul li:last-child { border-bottom: none; }
+  .tip-card ul li::before { content: "·"; color: var(--ocean); flex-shrink: 0; }
+
+  /* ── Footer ── */
+  .footer {
+    background: var(--ocean-dark);
+    color: rgba(255,255,255,0.6);
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+    font-size: 0.85rem;
+  }
+
+  .footer strong { color: rgba(255,255,255,0.9); }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<section class="hero">
+  <div class="hero-deco"></div>
+  <div class="hero-waves"></div>
+  <div class="hero-tag" style="position:relative;z-index:3;">2026 · 五一黄金周</div>
+  <h1 style="position:relative;z-index:3;">悉尼 &amp; <span>墨尔本</span></h1>
+  <p class="hero-sub" style="position:relative;z-index:3;">北京 · 澳大利亚东海岸 · 8天自由行</p>
+  <div class="hero-meta" style="position:relative;z-index:3;">
+    <div class="hero-meta-item">
+      <div class="label">出发</div>
+      <div class="value">4月27日</div>
+    </div>
+    <div class="hero-meta-item">
+      <div class="label">返程</div>
+      <div class="value">5月4日</div>
+    </div>
+    <div class="hero-meta-item">
+      <div class="label">人数</div>
+      <div class="value">2人</div>
+    </div>
+    <div class="hero-meta-item">
+      <div class="label">行程</div>
+      <div class="value">8天7晚</div>
+    </div>
+  </div>
+</section>
+
+<!-- 城市路线条 -->
+<div class="journey-bar">
+  <span class="city">北京</span>
+  <span class="arrow">✈</span>
+  <span>夜间飞行 ~11h</span>
+  <span class="arrow">→</span>
+  <span class="city">悉尼 Sydney</span>
+  <span>2晚</span>
+  <span class="arrow">✈</span>
+  <span>1.5h</span>
+  <span class="arrow">→</span>
+  <span class="city">墨尔本 Melbourne</span>
+  <span>4晚</span>
+  <span class="arrow">✈</span>
+  <span>返程</span>
+  <span class="arrow">→</span>
+  <span class="city">北京</span>
+</div>
+
+<!-- ═══════════════════ 行前须知 ═══════════════════ -->
+<section class="section">
+  <div class="section-label">行前须知</div>
+  <h2 class="section-title">出发前确认清单</h2>
+  <div class="overview-grid">
+    <div class="overview-card">
+      <div class="icon" style="background:#e8f4f8;">✈️</div>
+      <h3>签证</h3>
+      <p>澳大利亚电子旅行签（ETA），App Store/Google Play 下载"Australian ETA"App 申请，通常几分钟到数小时审批，费用 AUD 20/人。</p>
+    </div>
+    <div class="overview-card">
+      <div class="icon" style="background:#fff3e0;">💱</div>
+      <h3>货币</h3>
+      <p>澳大利亚澳元（AUD），当前参考汇率约 1 AUD ≈ 4.7 CNY。建议带少量现金，绑定 Visa/Mastercard 刷卡为主，大部分场所免找零。</p>
+    </div>
+    <div class="overview-card">
+      <div class="icon" style="background:#e8f5e9;">📱</div>
+      <h3>通讯</h3>
+      <p>推荐购买澳大利亚本地 SIM（Optus/Telstra），悉尼/墨尔本机场到达层均有售，约 AUD 30/15GB，也可国内开通运营商漫游套餐。</p>
+    </div>
+    <div class="overview-card">
+      <div class="icon" style="background:#f3e5f5;">🌡️</div>
+      <h3>天气（4月末–5月初）</h3>
+      <p>澳洲秋季。悉尼：18–25°C，偶有阵雨。墨尔本：14–20°C，昼夜温差大，"一天四季"，建议带薄外套和雨伞。</p>
+    </div>
+    <div class="overview-card">
+      <div class="icon" style="background:#fce4ec;">🚗</div>
+      <h3>交通</h3>
+      <p>两城市内公共交通便利（Opal Card 悉尼 / Myki 墨尔本）。大洋路跟团无需自驾。城市间乘坐国内航班约 1.5h。</p>
+    </div>
+    <div class="overview-card">
+      <div class="icon" style="background:#e8eaf6;">🛃</div>
+      <h3>海关申报</h3>
+      <p>澳大利亚生物安全要求严格，食品、木制品、土壤类物品需如实申报，违规罚款高达 AUD 2,664。不带食品最保险。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ 行程总览表 ═══════════════════ -->
+<section class="section" style="padding-top:0;">
+  <div class="section-label">一览</div>
+  <h2 class="section-title">8天行程总览</h2>
+  <table style="width:100%;border-collapse:collapse;font-size:0.88rem;">
+    <thead>
+      <tr style="background:var(--ocean-dark);color:#fff;">
+        <th style="padding:0.8rem 1rem;text-align:left;border-radius:12px 0 0 0;">日期</th>
+        <th style="padding:0.8rem 1rem;text-align:left;">星期</th>
+        <th style="padding:0.8rem 1rem;text-align:left;">城市</th>
+        <th style="padding:0.8rem 1rem;text-align:left;border-radius:0 12px 0 0;">主要安排</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background:#fff;">
+        <td style="padding:0.8rem 1rem;border-bottom:1px solid #f0f0f0;font-weight:600;">4月27日</td>
+        <td style="padding:0.8rem 1rem;border-bottom:1px solid #f0f0f0;color:#888;">周一</td>
+        <td style="padding:0.8rem 1rem;border-bottom:1px solid #f0f0f0;">北京 → 悉尼</td>
+        <td style="padding:0.8rem 1rem;border-bottom:1px solid #f0f0f0;">夜间出发，飞机上过夜</td>
+      </tr>
+      <tr style="background:#f9f9f9;">
+        <td style="padding:0.8rem 1rem;border-bottom:1px solid #f0f0f0;font-weight:600;">4月28日</td>
+        <td style="padding:0.8rem 1rem;border-bottom:1px solid #f0f0f0;color:#888;">周二</td>
+        <td style="padding:0.8rem 1rem;border-bottom:1px solid #f0f0f0;color:var(--ocean);font-weight:600;">悉尼</td>
+        <td style="padding:0.8rem 1rem;border-bottom:1px solid #f0f0f0;">早晨抵达 · 歌剧院 · 海港区域</td>
+      </tr>
+      <tr style="background:#fff;">
+        <td style="padding:0.8rem 1rem;border-bottom:1px solid #f0f0f0;font-weight:600;">4月29日</td>
+        <td style="padding:0.8rem 1rem;border-bottom:1px solid #f0f0f0;color:#888;">周三</td>
+        <td style="padding:0.8rem 1rem;border-bottom:1px solid #f0f0f0;color:var(--ocean);font-weight:600;">悉尼</td>
+        <td style="padding:0.8rem 1rem;border-bottom:1px solid #f0f0f0;">悉尼自由探索全天</td>
+      </tr>
+      <tr style="background:#f9f9f9;">
+        <td style="padding:0.8rem 1rem;border-bottom:1px solid #f0f0f0;font-weight:600;">4月30日</td>
+        <td style="padding:0.8rem 1rem;border-bottom:1px solid #f0f0f0;color:#888;">周四</td>
+        <td style="padding:0.8rem 1rem;border-bottom:1px solid #f0f0f0;">悉尼 → 墨尔本</td>
+        <td style="padding:0.8rem 1rem;border-bottom:1px solid #f0f0f0;">上午悉尼 · 下午飞抵墨尔本 · 市区初探</td>
+      </tr>
+      <tr style="background:#e8f5e9;">
+        <td style="padding:0.8rem 1rem;border-bottom:1px solid #f0f0f0;font-weight:600;color:var(--eucalyptus);">5月1日</td>
+        <td style="padding:0.8rem 1rem;border-bottom:1px solid #f0f0f0;color:#888;">周五（劳动节）</td>
+        <td style="padding:0.8rem 1rem;border-bottom:1px solid #f0f0f0;color:var(--eucalyptus);font-weight:600;">大洋路 Day 1</td>
+        <td style="padding:0.8rem 1rem;border-bottom:1px solid #f0f0f0;">跟团出发 · 大洋路沿线 · 夜宿坎贝尔港</td>
+      </tr>
+      <tr style="background:#e8f5e9;">
+        <td style="padding:0.8rem 1rem;border-bottom:1px solid #f0f0f0;font-weight:600;color:var(--eucalyptus);">5月2日</td>
+        <td style="padding:0.8rem 1rem;border-bottom:1px solid #f0f0f0;color:#888;">周六</td>
+        <td style="padding:0.8rem 1rem;border-bottom:1px solid #f0f0f0;color:var(--eucalyptus);font-weight:600;">大洋路 Day 2</td>
+        <td style="padding:0.8rem 1rem;border-bottom:1px solid #f0f0f0;">十二使徒岩日出 · 沿途景点 · 返回墨尔本</td>
+      </tr>
+      <tr style="background:#fff;">
+        <td style="padding:0.8rem 1rem;border-bottom:1px solid #f0f0f0;font-weight:600;">5月3日</td>
+        <td style="padding:0.8rem 1rem;border-bottom:1px solid #f0f0f0;color:#888;">周日</td>
+        <td style="padding:0.8rem 1rem;border-bottom:1px solid #f0f0f0;color:#7f5539;font-weight:600;">墨尔本</td>
+        <td style="padding:0.8rem 1rem;border-bottom:1px solid #f0f0f0;">墨尔本自由日（待选）</td>
+      </tr>
+      <tr style="background:#f9f9f9;">
+        <td style="padding:0.8rem 1rem;font-weight:600;">5月4日</td>
+        <td style="padding:0.8rem 1rem;color:#888;">周一</td>
+        <td style="padding:0.8rem 1rem;">墨尔本 → 北京</td>
+        <td style="padding:0.8rem 1rem;">启程返京</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ═══════════════════ 每日行程 ═══════════════════ -->
+<section class="section" style="padding-top:0;">
+  <div class="section-label">详细安排</div>
+  <h2 class="section-title">逐日行程</h2>
+
+  <!-- Day 0: 出发 -->
+  <div class="day-block">
+    <div class="day-header transit">
+      <div class="day-num">4月27日 · 周一</div>
+      <h2>北京出发</h2>
+      <div class="day-desc">夜间航班，机上过夜飞往悉尼</div>
+    </div>
+    <div class="timeline">
+      <div class="tl-item highlight">
+        <div class="tl-time">出发前</div>
+        <div class="tl-title">前往机场</div>
+        <div class="tl-body">北京首都/大兴机场，提前3小时到达。办理登机、托运，澳大利亚入境卡在飞机上填写（或提前通过 Australia Travel Declaration 完成）。</div>
+        <span class="tl-tag tag-flight">国际航班</span>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">夜间</div>
+        <div class="tl-title">飞行约 11–12 小时</div>
+        <div class="tl-body">直飞悉尼（PEK/PKX → SYD）。飞行时间约 11–12h，北京时间夜间出发，当地时间次日清晨抵达。<br><br>注意：由于时区差异，北京比悉尼慢约 3小时（5月起夏令时结束后约慢 3h）。</div>
+        <span class="tl-tag tag-flight">✈ PEK → SYD</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 1: 悉尼 抵达 -->
+  <div class="day-block">
+    <div class="day-header sydney">
+      <div class="day-num">4月28日 · 周二</div>
+      <h2>抵达悉尼</h2>
+      <div class="day-desc">清晨入境 · 稍作调整 · 海港初探</div>
+    </div>
+    <div class="timeline">
+      <div class="tl-item highlight">
+        <div class="tl-time">早晨</div>
+        <div class="tl-title">抵达悉尼国际机场（SYD）</div>
+        <div class="tl-body">办理入境（需验护照+签证，约45分钟–1.5小时），提取行李后前往酒店。悉尼机场位于市区南部，乘 Airport Train 约13分钟到市中心（单程约 AUD 19.44/人）。</div>
+        <span class="tl-tag tag-flight">入境</span>
+        <span class="tl-tag tag-tip">排队耗时较长，保持耐心</span>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">上午</div>
+        <div class="tl-title">办理入住 · 整理休息</div>
+        <div class="tl-body">多数酒店 check-in 时间为14:00，可先寄存行李。附近吃早餐，简单休息应对时差。</div>
+        <span class="tl-tag tag-hotel">酒店（待定）</span>
+      </div>
+      <div class="tl-item highlight">
+        <div class="tl-time">下午</div>
+        <div class="tl-title">悉尼歌剧院 Sydney Opera House</div>
+        <div class="tl-body">世界文化遗产，建筑大师约恩·乌松设计，帆船造型标志性。可选外观参观（免费）或购票参加室内导览（约 AUD 45/人，约1小时）。歌剧院旁的皇家植物园可步行前往，海湾景色绝佳。</div>
+        <span class="tl-tag tag-sight">必去景点</span>
+        <span class="tl-tag tag-tip">日落前后光线最美</span>
+      </div>
+
+      <!-- 占位槽 1 -->
+      <div class="slot">
+        <div class="slot-inner">
+          <div class="slot-label">待填充景点 — 4月28日下午/傍晚</div>
+          <div class="slot-hint">可从下方景点介绍中挑选：海港大桥、岩石区、达令港（距歌剧院步行10–15分钟）</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">晚餐</div>
+        <div class="tl-title">海港区用餐</div>
+        <div class="tl-body">环形码头（Circular Quay）一带餐厅密集，可选中餐（唐人街步行20分钟）或本地海鲜。</div>
+        <span class="tl-tag tag-food">餐饮</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 2: 悉尼全天 -->
+  <div class="day-block">
+    <div class="day-header sydney">
+      <div class="day-num">4月29日 · 周三</div>
+      <h2>悉尼探索日</h2>
+      <div class="day-desc">自由安排，选择下方备选景点填充</div>
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-time">早晨</div>
+        <div class="tl-title">早餐 · 出发</div>
+        <div class="tl-body">悉尼咖啡文化浓厚，随便找一家本地咖啡馆体验澳式 Flat White。</div>
+        <span class="tl-tag tag-food">早餐</span>
+      </div>
+
+      <!-- 占位槽 2 -->
+      <div class="slot">
+        <div class="slot-inner">
+          <div class="slot-label">待填充 — 4月29日上午</div>
+          <div class="slot-hint">可选：邦迪海滩（半天）、曼利海滩（渡轮，半天）、蓝山国家公园（全天，需这天早出发）</div>
+        </div>
+      </div>
+
+      <!-- 占位槽 3 -->
+      <div class="slot">
+        <div class="slot-inner">
+          <div class="slot-label">待填充 — 4月29日下午</div>
+          <div class="slot-hint">可选：达令港（半天）、皇家植物园、岩石区市集（周末有集市）</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">傍晚</div>
+        <div class="tl-title">收拾行李，准备明天转机</div>
+        <div class="tl-body">4月30日飞往墨尔本，建议选早/中午航班，以便下午在墨尔本市区还有时间。</div>
+        <span class="tl-tag tag-tip">航班建议 10:00–13:00 出发</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 3: 转场墨尔本 -->
+  <div class="day-block">
+    <div class="day-header transfer">
+      <div class="day-num">4月30日 · 周四</div>
+      <h2>悉尼 → 墨尔本</h2>
+      <div class="day-desc">上午悉尼 · 飞抵墨尔本 · 下午初探城市</div>
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-time">上午</div>
+        <div class="tl-title">退房 · 前往悉尼机场</div>
+        <div class="tl-body">乘 Airport Train 前往 SYD，国内航班提前 1.5–2 小时到达，无需办理国际出境手续，相对轻松。</div>
+        <span class="tl-tag tag-flight">国内段</span>
+      </div>
+      <div class="tl-item highlight">
+        <div class="tl-time">中午前后</div>
+        <div class="tl-title">飞悉尼 → 墨尔本（约1.5小时）</div>
+        <div class="tl-body">SYD → MEL，澳航（Qantas）/维珍（Virgin）/捷星（Jetstar）均有密集航班，每小时多班，票价差异较大，建议提前预订。</div>
+        <span class="tl-tag tag-flight">✈ SYD → MEL</span>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">下午</div>
+        <div class="tl-title">抵达墨尔本 · 办理入住</div>
+        <div class="tl-body">墨尔本机场（Tullamarine）距市区约 30km，SkyBus 约 AUD 22/人，出租车/Uber 约 AUD 45–60。入住酒店。</div>
+        <span class="tl-tag tag-hotel">酒店（已订第1晚）</span>
+      </div>
+
+      <!-- 占位槽 4 -->
+      <div class="slot">
+        <div class="slot-inner">
+          <div class="slot-label">待填充 — 4月30日下午/傍晚</div>
+          <div class="slot-hint">可选：联邦广场 + 涂鸦巷 + 女王市场（市中心打卡，距市区酒店步行即可）</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">晚间</div>
+        <div class="tl-title">确认大洋路旅行团出发事宜</div>
+        <div class="tl-body">明天（5月1日）早晨出发。确认集合地点、时间，准备好备用充电器、防晒、防风外套。大洋路地区风大，建议多带一层。</div>
+        <span class="tl-tag tag-tip">出发准备</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 4: 大洋路 Day 1 -->
+  <div class="day-block">
+    <div class="day-header gor">
+      <div class="day-num">5月1日 · 周五（劳动节）</div>
+      <h2>大洋路 · 第一天</h2>
+      <div class="day-desc">跟团出发 · 科纳特河 · 洛克阿德峡谷 · 日落十二使徒岩</div>
+    </div>
+    <div class="timeline">
+      <div class="tl-item gor-item highlight">
+        <div class="tl-time gor">清晨 07:00–07:30</div>
+        <div class="tl-title">旅行团集合出发</div>
+        <div class="tl-body">通常在墨尔本市区中心或指定酒店接客，具体以旅行团通知为准。建议提前到达，带好当天用品。</div>
+        <span class="tl-tag tag-tour">跟团</span>
+      </div>
+      <div class="tl-item gor-item">
+        <div class="tl-time gor">上午</div>
+        <div class="tl-title">科纳特河 Kennett River — 看考拉</div>
+        <div class="tl-body">路边桉树上经常有野生考拉在睡觉，是大洋路沿途最受欢迎的停留点之一。距墨尔本约 2–2.5h 车程。</div>
+        <span class="tl-tag tag-sight">野生动物</span>
+      </div>
+      <div class="tl-item gor-item highlight">
+        <div class="tl-time gor">下午</div>
+        <div class="tl-title">洛克阿德峡谷 Loch Ard Gorge</div>
+        <div class="tl-body">1878年帆船遇难故事发生地，峡谷两侧峭壁、碧绿海水令人震撼。步行下台阶到沙滩，景色极佳。</div>
+        <span class="tl-tag tag-sight">峡谷海岸</span>
+      </div>
+      <div class="tl-item gor-item highlight">
+        <div class="tl-time gor">傍晚 · 日落时分</div>
+        <div class="tl-title">十二使徒岩 The Twelve Apostles</div>
+        <div class="tl-body">大洋路最标志性景点，石灰岩海蚀柱从海面突起。日落时分金光照在岩石上，光影最为壮观。目前实际剩余8根柱子，仍是世界最美海岸线之一。</div>
+        <span class="tl-tag tag-sight">必看</span>
+        <span class="tl-tag tag-tip">日落约17:30–18:00（5月澳洲秋季）</span>
+      </div>
+      <div class="tl-item gor-item">
+        <div class="tl-time gor">晚间</div>
+        <div class="tl-title">夜宿坎贝尔港 Port Campbell</div>
+        <div class="tl-body">大多数旅行团安排在坎贝尔港或附近小镇住宿，安静的海边小镇。旅行团包含住宿（部分团不含，需自订，见下方住宿推荐）。</div>
+        <span class="tl-tag tag-hotel">坎贝尔港</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 5: 大洋路 Day 2 -->
+  <div class="day-block">
+    <div class="day-header gor">
+      <div class="day-num">5月2日 · 周六</div>
+      <h2>大洋路 · 第二天</h2>
+      <div class="day-desc">日出 · 拱门 · 伦敦桥 · 返回墨尔本</div>
+    </div>
+    <div class="timeline">
+      <div class="tl-item gor-item highlight">
+        <div class="tl-time gor">清晨（可选）</div>
+        <div class="tl-title">十二使徒岩日出</div>
+        <div class="tl-body">距坎贝尔港仅数分钟车程，日出约 07:00–07:30（5月）。晨光中的岩柱颜色偏暖，人少，值得早起。</div>
+        <span class="tl-tag tag-sight">日出推荐</span>
+      </div>
+      <div class="tl-item gor-item">
+        <div class="tl-time gor">上午</div>
+        <div class="tl-title">拱门 The Arch · 伦敦桥 London Bridge</div>
+        <div class="tl-body">伦敦桥是一座天然岩石拱桥，1990年外侧断裂成独立岩石，形态独特。拱门（The Arch）是十二使徒岩附近另一处壮观的海蚀拱。</div>
+        <span class="tl-tag tag-sight">海蚀地貌</span>
+      </div>
+      <div class="tl-item gor-item">
+        <div class="tl-time gor">午后</div>
+        <div class="tl-title">奥特韦角 Cape Otway（部分团）</div>
+        <div class="tl-body">澳大利亚大陆最南端之一，有灯塔和考拉保护区，部分旅行团会途经此地。</div>
+        <span class="tl-tag tag-sight">灯塔</span>
+      </div>
+      <div class="tl-item gor-item highlight">
+        <div class="tl-time gor">傍晚</div>
+        <div class="tl-title">返回墨尔本</div>
+        <div class="tl-body">通常18:00–20:00返回市区，可能沿内陆公路返回（景色不同于来时）。返回后自行晚餐休息。</div>
+        <span class="tl-tag tag-hotel">墨尔本市区（需自订）</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 6: 墨尔本自由日 -->
+  <div class="day-block">
+    <div class="day-header melb">
+      <div class="day-num">5月3日 · 周日</div>
+      <h2>墨尔本自由日</h2>
+      <div class="day-desc">从下方备选中挑选心仪活动</div>
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-time">早晨</div>
+        <div class="tl-title">早餐 · 出发</div>
+        <div class="tl-body">墨尔本咖啡文化全澳第一，Lygon Street / Fitzroy 一带有大量特色咖啡馆，可作为早上起点。</div>
+        <span class="tl-tag tag-food">早餐</span>
+      </div>
+
+      <!-- 占位槽 5 -->
+      <div class="slot">
+        <div class="slot-inner">
+          <div class="slot-label">待填充 — 5月3日全天主活动</div>
+          <div class="slot-hint">可选：菲利普岛企鹅归巢（全天，需提前预订）· 亚拉河谷酒庄（全天）· 丹德农山脉小火车（全天）</div>
+        </div>
+      </div>
+
+      <!-- 占位槽 6 -->
+      <div class="slot">
+        <div class="slot-inner">
+          <div class="slot-label">待填充 — 5月3日下午/备选（如选市区活动）</div>
+          <div class="slot-hint">可选：圣基尔达海滩（半天）· 联邦广场+弗林德斯街（1–2h）· 女王市场（周日开放）</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">晚间</div>
+        <div class="tl-title">墨尔本最后一晚</div>
+        <div class="tl-body">明天返程，整理行李，体验一次墨尔本的夜生活或餐厅晚餐。东南亚菜/意大利菜/当地牛排馆都是好选择。</div>
+        <span class="tl-tag tag-food">晚餐</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 7: 返程 -->
+  <div class="day-block">
+    <div class="day-header return">
+      <div class="day-num">5月4日 · 周一</div>
+      <h2>启程返京</h2>
+      <div class="day-desc">墨尔本 → 北京，约11–12小时飞行</div>
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-time">航班前3–3.5小时</div>
+        <div class="tl-title">前往墨尔本机场</div>
+        <div class="tl-body">Tullamarine 机场，国际出发建议提前 3–3.5 小时到达。SkyBus 约 AUD 22/人，Uber 约 AUD 45–60。</div>
+        <span class="tl-tag tag-flight">国际出发</span>
+      </div>
+      <div class="tl-item highlight">
+        <div class="tl-time coral">起飞</div>
+        <div class="tl-title">MEL → PEK/PKX 返程航班</div>
+        <div class="tl-body">飞行约 11–12 小时，抵达北京通常次日（5月5日）。由于时区差，飞行虽长但实际日历跨越约1天。</div>
+        <span class="tl-tag tag-flight">✈ MEL → PEK</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ 景点百科 ═══════════════════ -->
+<section class="section" style="padding-top:0;background:linear-gradient(to bottom, var(--paper), #eef4f8);margin:0;max-width:100%;padding-left:0;padding-right:0;">
+  <div style="max-width:860px;margin:0 auto;padding:4rem 1.5rem 2rem;">
+    <div class="section-label">景点详介</div>
+    <h2 class="section-title">悉尼备选景点</h2>
+    <p style="color:#666;font-size:0.9rem;margin-bottom:1.5rem;">以下为可填入行程的备选景点，按所需时间和距离排列，供参考选择。</p>
+    <div class="attraction-grid">
+
+      <!-- A. 海港大桥 + 岩石区 -->
+      <div class="attraction-card">
+        <div class="attr-header">
+          <div class="attr-code">A</div>
+          <div>
+            <div class="attr-name">海港大桥 + 岩石区</div>
+            <div class="attr-en">Sydney Harbour Bridge + The Rocks</div>
+          </div>
+        </div>
+        <div class="attr-body">
+          悉尼大桥建于1932年，连接市区与北岸，步行过桥免费（人行道），可俯瞰整个海港和歌剧院。桥下的岩石区是悉尼最古老的街区，石砌小巷、工艺品店、老酒吧，周末有露天市集，氛围极好。
+          <div class="attr-meta">
+            <span class="attr-badge time">⏱ 2–3小时</span>
+            <span class="attr-badge cost">💰 步行免费</span>
+            <span class="attr-badge tip">距歌剧院步行5分钟</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- B. 皇家植物园 -->
+      <div class="attraction-card">
+        <div class="attr-header">
+          <div class="attr-code">B</div>
+          <div>
+            <div class="attr-name">皇家植物园</div>
+            <div class="attr-en">Royal Botanic Garden Sydney</div>
+          </div>
+        </div>
+        <div class="attr-body">
+          紧邻歌剧院和歌剧院湾，完全免费，面积约30公顷。园内可近距离看到野生蝙蝠（果蝠）挂在树上，还能拍到以歌剧院+大桥为背景的完美机位。适合饭后散步或连同歌剧院一起逛。
+          <div class="attr-meta">
+            <span class="attr-badge time">⏱ 1–2小时</span>
+            <span class="attr-badge cost">💰 免费</span>
+            <span class="attr-badge tip">歌剧院旁，随时可加</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- C. 邦迪海滩 -->
+      <div class="attraction-card">
+        <div class="attr-header">
+          <div class="attr-code">C</div>
+          <div>
+            <div class="attr-name">邦迪海滩 + 海岸徒步</div>
+            <div class="attr-en">Bondi Beach + Bondi to Coogee Walk</div>
+          </div>
+        </div>
+        <div class="attr-body">
+          悉尼最著名的海滩，冲浪客聚集地。5月为澳洲秋季，下海游泳偏凉（约18°C），但沙滩散步、拍照仍非常舒适。强烈推荐徒步 Bondi → Coogee 海岸步道（约6km，2–3小时），沿途峭壁海景极为震撼，全程大部分户外免费。
+          <div class="attr-meta">
+            <span class="attr-badge time">⏱ 半天（含徒步）</span>
+            <span class="attr-badge cost">💰 免费</span>
+            <span class="attr-badge tip">公交 333/380 从市区约30分钟</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- D. 曼利海滩 -->
+      <div class="attraction-card">
+        <div class="attr-header">
+          <div class="attr-code">D</div>
+          <div>
+            <div class="attr-name">曼利海滩（渡轮）</div>
+            <div class="attr-en">Manly Beach via Ferry</div>
+          </div>
+        </div>
+        <div class="attr-body">
+          从环形码头（Circular Quay）乘渡轮30分钟到达，渡轮本身就是一段风景绝佳的海港之旅。曼利是宁静的海滩小镇，有咖啡馆、冲浪学校和徒步路线，与市区喧嚣形成对比。适合想要放松、避开旅游人群的半天行程。
+          <div class="attr-meta">
+            <span class="attr-badge time">⏱ 半天</span>
+            <span class="attr-badge cost">💰 渡轮 AUD ~8（Opal Card）</span>
+            <span class="attr-badge tip">渡轮风景绝佳，强烈推荐坐上层甲板</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- E. 达令港 -->
+      <div class="attraction-card">
+        <div class="attr-header">
+          <div class="attr-code">E</div>
+          <div>
+            <div class="attr-name">达令港</div>
+            <div class="attr-en">Darling Harbour</div>
+          </div>
+        </div>
+        <div class="attr-body">
+          悉尼市区综合娱乐区，海港边上，餐厅、酒吧、购物中心密集，适合傍晚吃饭、夜景散步。附近有悉尼水族馆（SEA LIFE Sydney，票价约 AUD 50/人）、怀尔德生命动物园、海事博物馆（免费）。夜晚灯光映入水面，适合饭后散步拍夜景。
+          <div class="attr-meta">
+            <span class="attr-badge time">⏱ 2–3小时</span>
+            <span class="attr-badge cost">💰 逛街免费，景点另收</span>
+            <span class="attr-badge tip">适合傍晚 + 晚餐搭配</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- F. 蓝山 -->
+      <div class="attraction-card">
+        <div class="attr-header">
+          <div class="attr-code">F</div>
+          <div>
+            <div class="attr-name">蓝山国家公园</div>
+            <div class="attr-en">Blue Mountains National Park</div>
+          </div>
+        </div>
+        <div class="attr-body">
+          世界遗产，距悉尼约1.5–2小时车程（火车可直达 Katoomba 站）。以"三姐妹岩"（Three Sisters）和深邃峡谷著称，蓝色薄雾来自桉树挥发的油脂，景色梦幻。需一整天，建议早出发、晚返回，适合体力好、想看自然风光的一天。
+          <div class="attr-meta">
+            <span class="attr-badge time">⏱ 全天（约10小时）</span>
+            <span class="attr-badge cost">💰 火车约 AUD 8–10，入园免费</span>
+            <span class="attr-badge tip">只适合4月29日，且需早7点出发</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 墨尔本备选 -->
+    <h2 class="section-title" style="margin-top:3rem;">墨尔本备选景点</h2>
+    <div class="attraction-grid">
+
+      <!-- G. 菲利普岛 -->
+      <div class="attraction-card">
+        <div class="attr-header">
+          <div class="attr-code melb">G</div>
+          <div>
+            <div class="attr-name">菲利普岛企鹅归巢</div>
+            <div class="attr-en">Phillip Island Penguin Parade</div>
+          </div>
+        </div>
+        <div class="attr-body">
+          澳大利亚最热门自然体验之一。每天日落后，成群小蓝企鹅（约30–40cm高）从海里上岸回到巢穴，萌感爆棚。菲利普岛距墨尔本约1.5小时车程，5月日落约17:30，建议跟一日游团（含接送）或自驾。需提前购票（Penguin Parade 门票，成人约 AUD 30–60）。
+          <div class="attr-meta">
+            <span class="attr-badge time">⏱ 全天（10h+）</span>
+            <span class="attr-badge cost">💰 AUD 30–60/人 + 交通</span>
+            <span class="attr-badge tip">必须提前购票，高峰期售罄</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- H. 亚拉河谷 -->
+      <div class="attraction-card">
+        <div class="attr-header">
+          <div class="attr-code melb">H</div>
+          <div>
+            <div class="attr-name">亚拉河谷酒庄</div>
+            <div class="attr-en">Yarra Valley Wineries</div>
+          </div>
+        </div>
+        <div class="attr-body">
+          墨尔本近郊的顶级葡萄酒产区，约1–1.5小时车程。5月为收获季末，葡萄园秋色金黄，是品酒、享用美食的绝佳时机。知名酒庄包括 Domaine Chandon、Yering Station、De Bortoli 等。可跟一日游团（中文/英文均有）或自驾前往，午餐直接在酒庄餐厅享用。
+          <div class="attr-meta">
+            <span class="attr-badge time">⏱ 全天</span>
+            <span class="attr-badge cost">💰 团费约 AUD 100–150/人</span>
+            <span class="attr-badge tip">5月秋色+品酒，体验极佳</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- I. 丹德农山脉 -->
+      <div class="attraction-card">
+        <div class="attr-header">
+          <div class="attr-code melb">I</div>
+          <div>
+            <div class="attr-name">丹德农山脉 + 小火车</div>
+            <div class="attr-en">Dandenong Ranges + Puffing Billy Railway</div>
+          </div>
+        </div>
+        <div class="attr-body">
+          距市区约1小时，雨林步道幽静宜人，树蕨参天。最大亮点是蒸汽小火车 Puffing Billy，穿越山间林间，沿途景色如童话。5月秋叶，配上老式小火车非常有感觉。适合慢节奏的一天，适合拍照。
+          <div class="attr-meta">
+            <span class="attr-badge time">⏱ 全天</span>
+            <span class="attr-badge cost">💰 Puffing Billy 约 AUD 60–80/人</span>
+            <span class="attr-badge tip">需提前订票，周末易满</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- J. 圣基尔达 -->
+      <div class="attraction-card">
+        <div class="attr-header">
+          <div class="attr-code melb">J</div>
+          <div>
+            <div class="attr-name">圣基尔达海滩</div>
+            <div class="attr-en">St Kilda Beach</div>
+          </div>
+        </div>
+        <div class="attr-body">
+          墨尔本最受欢迎的海滨区，乘有轨电车（免费）约30分钟到达。5月气温偏凉，不太适合游泳，但海滨散步、圣基尔达码头、露天市集（周日有艺术集市）非常惬意。码头底部可见野生小企鹅在防浪石里筑巢（日落后免费观察）。
+          <div class="attr-meta">
+            <span class="attr-badge time">⏱ 半天</span>
+            <span class="attr-badge cost">💰 电车免费（市区段），景点免费</span>
+            <span class="attr-badge tip">周日有艺术集市，可与市区活动搭配</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- K. 市中心打卡 -->
+      <div class="attraction-card">
+        <div class="attr-header">
+          <div class="attr-code melb">K</div>
+          <div>
+            <div class="attr-name">墨尔本市中心打卡</div>
+            <div class="attr-en">City Highlights: Federation Sq · Queen Vic Market · Hosier Lane</div>
+          </div>
+        </div>
+        <div class="attr-body">
+          <strong>联邦广场</strong>（Federation Square）：墨尔本的城市客厅，独特的几何建筑，免费，地铁 Flinders St 出来即到。<br>
+          <strong>女王市场</strong>（Queen Victoria Market）：百年历史的露天市场，生鲜+熟食+纪念品，周三/周五/周六/周日开放。<br>
+          <strong>涂鸦巷</strong>（Hosier Lane）：全球知名的街头艺术圣地，走5分钟即到。<br>
+          适合轻松半天市区漫步，可作为抵达/离开日程的补充。
+          <div class="attr-meta">
+            <span class="attr-badge time">⏱ 2–3小时</span>
+            <span class="attr-badge cost">💰 基本免费</span>
+            <span class="attr-badge tip">适合4月30日下午或5月4日早上</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ 大洋路旅行团 ═══════════════════ -->
+<section class="section">
+  <div class="section-label">跟团推荐</div>
+  <h2 class="section-title">大洋路 2日旅行团</h2>
+
+  <div class="callout green">
+    <strong>行程时间：5月1日–5月2日</strong>，从墨尔本出发，含1晚住宿（坎贝尔港/沃南布尔附近）。建议旅行团含住宿，更省事；也有不含住宿的团，需要自行在当地订酒店。
+  </div>
+
+  <div class="tour-card">
+    <h3>🌐 中文导览团 — 携程 / Klook 搜索</h3>
+    <div class="tour-meta">
+      <span class="tour-meta-item">👥 <strong>适合人群：</strong>中文母语旅行者</span>
+      <span class="tour-meta-item">💰 <strong>参考价格：</strong>约 ¥800–1,500 / 人（含住1晚）</span>
+      <span class="tour-meta-item">🔍 <strong>搜索平台：</strong>携程 / Klook / 马蜂窝</span>
+    </div>
+    <div class="tour-route">
+      <span class="stop">墨尔本出发</span><span class="arrow">→</span>
+      <span class="stop">科纳特河考拉</span><span class="arrow">→</span>
+      <span class="stop">洛克阿德峡谷</span><span class="arrow">→</span>
+      <span class="stop">十二使徒岩（日落）</span><span class="arrow">→</span>
+      <span class="stop">夜宿坎贝尔港</span><span class="arrow">→</span>
+      <span class="stop">十二使徒岩（日出）</span><span class="arrow">→</span>
+      <span class="stop">返回墨尔本</span>
+    </div>
+    <p><strong>搜索关键词：</strong>"大洋路 2日游 墨尔本出发" → 筛选"中文导游"，选评分 4.5 分以上产品，注意确认是否含住宿和保险。</p>
+    <ul>
+      <li>携程：搜"大洋路 两日游"，选出发城市"墨尔本"</li>
+      <li>Klook (klook.com/zh-CN)：搜"Great Ocean Road 2 day"</li>
+      <li>马蜂窝：查攻略找近期评价靠前的包车/小团</li>
+    </ul>
+  </div>
+
+  <div class="tour-card">
+    <h3>🇦🇺 英文口碑旅行团</h3>
+    <div class="tour-meta">
+      <span class="tour-meta-item">👥 <strong>适合人群：</strong>不要求中文导览</span>
+      <span class="tour-meta-item">💰 <strong>参考价格：</strong>AUD 200–380 / 人</span>
+      <span class="tour-meta-item">🔍 <strong>搜索平台：</strong>Viator / GetYourGuide</span>
+    </div>
+    <p><strong>推荐运营商：</strong></p>
+    <ul>
+      <li><strong>Autopia Tours</strong>（autopiatours.com.au）— 口碑好，小团制，适合年轻旅行者</li>
+      <li><strong>Bunyip Tours</strong>（bunyiptours.com）— 价格实惠，评价稳定</li>
+      <li><strong>AAT Kings</strong>（aatkings.com）— 大型运营商，行程稳定，服务标准</li>
+    </ul>
+    <p style="margin-top:0.8rem;"><strong>搜索方式：</strong>Viator.com 搜 "2-day Great Ocean Road from Melbourne"，按评分排序，注意看清楚是否含住宿（"overnight"）。</p>
+  </div>
+
+  <div class="callout sand">
+    <strong>预订建议：</strong>5月1日正值国内劳动节长假，前往澳洲的中国游客较多，中文团位置可能紧张。建议 <strong>出发前2–4周提前预订</strong>，锁定心仪团次。同时确认：① 是否含住宿 ② 接送酒店还是集合点 ③ 取消政策。
+  </div>
+</section>
+
+<!-- ═══════════════════ 墨尔本住宿推荐 ═══════════════════ -->
+<section class="section" style="padding-top:0;">
+  <div class="section-label">住宿推荐</div>
+  <h2 class="section-title">墨尔本及大洋路住宿</h2>
+
+  <p style="color:#666;font-size:0.9rem;margin-bottom:2rem;">已订首晚（4月30日）酒店。下方为剩余夜晚参考：大洋路2晚（5月1–2日 — 部分旅行团含住宿，若不含需自订）及5月2日返回墨尔本后的住宿（5月2晚、5月3晚）。</p>
+
+  <!-- 坎贝尔港 大洋路 -->
+  <div class="hotel-section">
+    <h3>大洋路 · 坎贝尔港 Port Campbell（5月1日晚）</h3>
+    <p style="font-size:0.85rem;color:#888;margin-bottom:1rem;">若旅行团不含住宿，需自行预订。坎贝尔港是紧邻十二使徒岩的小镇，选项有限但交通方便。</p>
+    <div class="hotel-grid">
+      <div class="hotel-card">
+        <div class="hotel-name">Port Campbell Hotel</div>
+        <div class="hotel-stars">★★★</div>
+        <div class="hotel-desc">镇中心老牌旅馆，有餐厅酒吧，步行即可到镇上餐厅。距十二使徒岩约10分钟车程。</div>
+        <div class="hotel-price">约 AUD 180–250/晚</div>
+      </div>
+      <div class="hotel-card">
+        <div class="hotel-name">Port Campbell Motor Inn</div>
+        <div class="hotel-stars">★★★</div>
+        <div class="hotel-desc">汽车旅馆风格，有停车场，适合自驾。设施简单实用，性价比高。</div>
+        <div class="hotel-price">约 AUD 150–200/晚</div>
+      </div>
+      <div class="hotel-card">
+        <div class="hotel-name">Loch Ard Motor Inn</div>
+        <div class="hotel-stars">★★★</div>
+        <div class="hotel-desc">以洛克阿德峡谷命名，离景区很近，适合大洋路旅行者。</div>
+        <div class="hotel-price">约 AUD 160–230/晚</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 墨尔本 CBD 大洋路返回后 -->
+  <div class="hotel-section">
+    <h3>墨尔本市区 CBD（5月2日晚 + 5月3日晚）</h3>
+    <p style="font-size:0.85rem;color:#888;margin-bottom:1rem;">大洋路返回后建议住市区，方便出行和机场交通。推荐 CBD 核心区（Spencer St / Flinders St 周边）或 South Yarra 区。</p>
+    <div class="hotel-grid">
+      <div class="hotel-card">
+        <div class="hotel-name">Novotel Melbourne on Collins</div>
+        <div class="hotel-stars">★★★★</div>
+        <div class="hotel-desc">Collins Street 市中心黄金地段，有轨电车免费区内，步行至主要景点。品牌可靠，设施齐全。</div>
+        <div class="hotel-price">约 AUD 200–280/晚</div>
+      </div>
+      <div class="hotel-card">
+        <div class="hotel-name">Sofitel Melbourne On Collins</div>
+        <div class="hotel-stars">★★★★★</div>
+        <div class="hotel-desc">五星酒店，高楼层可俯瞰全城，服务顶级，适合想要升级体验的最后两晚。</div>
+        <div class="hotel-price">约 AUD 350–500/晚</div>
+      </div>
+      <div class="hotel-card">
+        <div class="hotel-name">ibis Melbourne Hotel</div>
+        <div class="hotel-stars">★★★</div>
+        <div class="hotel-desc">经济实惠，位于 Therry Street，距女王市场步行5分钟，性价比高，适合预算有限的旅行者。</div>
+        <div class="hotel-price">约 AUD 120–160/晚</div>
+      </div>
+      <div class="hotel-card">
+        <div class="hotel-name">The Adelphi Hotel</div>
+        <div class="hotel-stars">★★★★</div>
+        <div class="hotel-desc">精品设计酒店，屋顶泳池是亮点（向外悬挑在街道上方），地段优越，个性十足。</div>
+        <div class="hotel-price">约 AUD 250–350/晚</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <strong>预订建议：</strong>建议通过 Booking.com / Agoda / Hotels.com 预订，可免费取消的房型优先选择。5月初为澳洲低旅游季，通常有较好价格，但 5月1日劳动节期间中国游客集中出行，坎贝尔港等小镇房源有限，建议提前1–2个月订。
+  </div>
+</section>
+
+<!-- ═══════════════════ 实用贴士 ═══════════════════ -->
+<section class="section" style="padding-top:0;">
+  <div class="section-label">旅行贴士</div>
+  <h2 class="section-title">实用备忘</h2>
+  <div class="tips-grid">
+    <div class="tip-card">
+      <h4>🚌 悉尼交通</h4>
+      <ul>
+        <li>Opal Card 可乘地铁/公交/渡轮/火车</li>
+        <li>悉尼机场进出需额外支付 Airport Station Fee（单次约 AUD 14）</li>
+        <li>市区 Uber 方便，白天等待约3–5分钟</li>
+        <li>渡轮是欣赏海港的最佳方式</li>
+      </ul>
+    </div>
+    <div class="tip-card">
+      <h4>🚃 墨尔本交通</h4>
+      <ul>
+        <li>Myki Card 可乘地铁/有轨电车/公交</li>
+        <li>市区免费电车区（Free Tram Zone）覆盖 CBD</li>
+        <li>SkyBus 往返机场约 AUD 22/人</li>
+        <li>Flinders Street 是市内交通核心枢纽</li>
+      </ul>
+    </div>
+    <div class="tip-card">
+      <h4>🍽️ 餐饮</h4>
+      <ul>
+        <li>两城均有丰富中餐选择（中国城/华人区）</li>
+        <li>澳洲牛排物有所值，性价比远高于国内</li>
+        <li>咖啡文化浓厚，试试 Flat White / Long Black</li>
+        <li>小费非强制，满意可给 10–15%</li>
+      </ul>
+    </div>
+    <div class="tip-card">
+      <h4>🛒 购物</h4>
+      <ul>
+        <li>购物满 AUD 300（单店）可申请 TRS 退税（机场离境前）</li>
+        <li>超市：Coles / Woolworths，价格实惠</li>
+        <li>药妆：Chemist Warehouse，澳洲特产保健品首选</li>
+        <li>DFO 奥特莱斯可买折扣名牌</li>
+      </ul>
+    </div>
+    <div class="tip-card">
+      <h4>📋 入境注意</h4>
+      <ul>
+        <li>食物、植物、肉类必须如实申报或处理</li>
+        <li>超过 AUD 10,000 现金需申报</li>
+        <li>药品建议带原包装及英文说明书</li>
+        <li>提前下载"Australian ETA"确认签证有效</li>
+      </ul>
+    </div>
+    <div class="tip-card">
+      <h4>🌤️ 天气 &amp; 穿搭</h4>
+      <ul>
+        <li>悉尼：白天暖和，晚间凉，薄外套</li>
+        <li>墨尔本："一天四季"，洋葱式穿搭</li>
+        <li>大洋路：风大，建议防风衣 + 厚外套</li>
+        <li>5月日落提前（约17:30），注意时间安排</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <strong>北京 → 悉尼 → 墨尔本 → 北京</strong><br>
+  2026年4月27日–5月4日 · 8天7晚 · 澳大利亚东海岸自由行
+</footer>
+
+</body>
+</html>
